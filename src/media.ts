@@ -2,7 +2,7 @@ export const mediaAssets = {
   heroMain:
     'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=80',
   heroSecondary:
-    'https://images.unsplash.com/photo-1571019613914-85f342c1d4b5?auto=format&fit=crop&w=1100&q=80',
+    'https://images.pexels.com/photos/2261485/pexels-photo-2261485.jpeg?auto=compress&cs=tinysrgb&w=1400',
   manifesto:
     'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1400&q=80',
   equipmentOne:
