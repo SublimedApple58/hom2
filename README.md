@@ -27,6 +27,7 @@ npm run preview
 
 - Brand, apertura, contatti, disclaimer: `/Users/tizianodifelice/Desktop/hom2/src/config.ts`
 - Prezzi e vantaggi piani: `/Users/tizianodifelice/Desktop/hom2/src/plans.ts`
+- Immagini stock usate in landing: `/Users/tizianodifelice/Desktop/hom2/src/media.ts`
 - Copy sezioni: file in `/Users/tizianodifelice/Desktop/hom2/src/components/`
 - Palette, tipografia, responsive, animazioni: `/Users/tizianodifelice/Desktop/hom2/src/index.css`
 

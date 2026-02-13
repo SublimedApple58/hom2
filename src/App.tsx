@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { appConfig } from './config';
+import { AtmosphereSection } from './components/AtmosphereSection';
 import { EquipmentSection } from './components/EquipmentSection';
 import { FaqSection } from './components/FaqSection';
 import { FooterContacts } from './components/FooterContacts';
@@ -30,6 +31,7 @@ function App() {
       <main>
         <ManifestSection />
         <EquipmentSection />
+        <AtmosphereSection />
         <MembershipCards plans={membershipPlans} onSelectPlan={handlePlanSelect} />
         <PreorderWizard
           plans={membershipPlans}

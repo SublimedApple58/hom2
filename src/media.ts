@@ -1,0 +1,20 @@
+export const mediaAssets = {
+  heroMain:
+    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=80',
+  heroSecondary:
+    'https://images.unsplash.com/photo-1571019613914-85f342c1d4b5?auto=format&fit=crop&w=1100&q=80',
+  manifesto:
+    'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1400&q=80',
+  equipmentOne:
+    'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1400&q=80',
+  equipmentTwo:
+    'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
+  atmosphereOne:
+    'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  atmosphereTwo:
+    'https://images.pexels.com/photos/949130/pexels-photo-949130.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  atmosphereThree:
+    'https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  preorder:
+    'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=1400&q=80',
+};

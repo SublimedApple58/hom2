@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useReducer, useState } from 'react';
-import type { CheckoutState, CheckoutStatus, LeadFormData, MembershipPlan, MockPaymentData } from '../types';
+import { mediaAssets } from '../media';
 import { formatEuro } from '../plans';
+import type { CheckoutState, CheckoutStatus, LeadFormData, MembershipPlan, MockPaymentData } from '../types';
 import { SuccessPanel } from './SuccessPanel';
 import { WizardStepLead } from './WizardStepLead';
 import { WizardStepPaymentMock } from './WizardStepPaymentMock';
@@ -119,10 +120,12 @@ function validateLeadData(data: LeadFormData): Partial<Record<keyof LeadFormData
       errors.email = 'Formato email non valido.';
     }
   }
+
   const phoneDigits = data.phone.replace(/\D/g, '');
   if (phoneDigits.length < 8) {
     errors.phone = 'Inserisci un numero di telefono valido.';
   }
+
   if (!data.privacyAccepted) {
     errors.privacyAccepted = 'Devi accettare la privacy per continuare.';
   }
@@ -225,6 +228,22 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
       <div className="container">
         <p className="eyebrow">Checkout Pre-order</p>
         <h2>Registra il tuo pre-order in 3 step.</h2>
+
+        <div className="preorder__lead">
+          <div>
+            <p>
+              Questa fase e pensata per raccogliere i tuoi dati, farti scegliere la formula piu adatta e simulare il
+              checkout che verra attivato in versione definitiva.
+            </p>
+            <ul className="preorder__lead-points">
+              <li>Compilazione rapida ottimizzata per smartphone</li>
+              <li>Scelta piano immediata con riepilogo prezzi</li>
+              <li>Conferma finale demo senza addebito reale</li>
+            </ul>
+          </div>
+          <img src={mediaAssets.preorder} alt="Cliente in fase di pagamento digitale" loading="lazy" />
+        </div>
+
         <div className="preorder__layout">
           <aside className="preorder__summary" aria-label="Riepilogo pre-order">
             <h3>Riepilogo rapido</h3>
