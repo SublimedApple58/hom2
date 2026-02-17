@@ -1,6 +1,7 @@
 import { mediaAssets } from '../media';
 
 const machineBrands = ['Star Trac', 'Nautilus', 'Cybex', 'Icarian', 'Hammer Strength'];
+const tickerText = machineBrands.join(' • ');
 
 export function EquipmentSection() {
   return (
@@ -10,7 +11,10 @@ export function EquipmentSection() {
         <h2>Solo macchinari di altissimo livello, firmati dai brand piu riconosciuti al mondo.</h2>
 
         <div className="equipment__ticker" aria-hidden="true">
-          <p>{machineBrands.concat(machineBrands).join(' • ')}</p>
+          <div className="equipment__ticker-track">
+            <p>{tickerText} • {tickerText}</p>
+            <p>{tickerText} • {tickerText}</p>
+          </div>
         </div>
 
         <div className="equipment__layout equipment__layout--reverse">
