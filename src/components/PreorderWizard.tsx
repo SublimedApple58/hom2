@@ -318,9 +318,7 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
                     >
                       Indietro
                     </button>
-                  ) : (
-                    <span />
-                  )}
+                  ) : null}
 
                   {state.step < 3 ? (
                     <button type="button" className="btn btn--primary" onClick={handleNext}>
