@@ -1,4 +1,5 @@
 import { appConfig } from '../config';
+import { mediaAssets } from '../media';
 
 interface HeroSectionProps {
   onPrimaryCta: () => void;
@@ -7,6 +8,10 @@ interface HeroSectionProps {
 export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
   return (
     <section className="hero section-surface" id="top">
+      <div className="hero__backdrop" aria-hidden="true">
+        <img src={mediaAssets.heroMain} alt="Sala pesi intensa con macchinari professionali" loading="eager" />
+      </div>
+
       <div className="container hero__content">
         <div className="hero__copy">
           <p className="eyebrow">Nuova apertura a San Nicolò</p>

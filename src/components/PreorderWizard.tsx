@@ -229,7 +229,7 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
         <p className="eyebrow">Iscrizione rapida</p>
         <h2>Completa la tua richiesta in 3 step.</h2>
 
-        <div className="preorder__lead">
+        <div className="preorder__lead preorder__lead--reverse">
           <div>
             <p>
               Questo flusso ti permette di lasciare i tuoi dati, scegliere la formula più adatta e simulare il

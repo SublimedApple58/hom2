@@ -13,7 +13,7 @@ export function EquipmentSection() {
           <p>{machineBrands.concat(machineBrands).join(' • ')}</p>
         </div>
 
-        <div className="equipment__layout">
+        <div className="equipment__layout equipment__layout--reverse">
           <div className="equipment__copy">
             <p>
               Abbiamo scelto solo macchinari di altissimo livello, firmati dai brand più riconosciuti nel mondo del
