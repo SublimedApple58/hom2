@@ -5,15 +5,18 @@ export function AtmosphereSection() {
     <section className="atmosphere section-surface" id="vision">
       <div className="container atmosphere__layout">
         <div className="atmosphere__copy">
-          <p className="eyebrow">Visione</p>
-          <h2>Un posto che ti costringe a dare di piu, ogni singola seduta.</h2>
+          <p className="eyebrow">La nostra visione</p>
+          <h2>Vogliamo creare molto piu di una palestra.</h2>
           <p>
-            Il progetto HOUSE OF MUSCLE 2.0 non vuole essere “carino”: vuole essere utile a chi ha obiettivi reali.
-            Luci, suono, layout e attrezzatura sono pensati per concentrarti sul lavoro, non sulla distrazione.
+            Vogliamo costruire un punto di riferimento a San Nicolò per chi sceglie di investire su sé stesso.
           </p>
           <p>
-            Pre-order significa entrare tra i primi, bloccare la tariffa di lancio e partecipare alla fase iniziale del
-            club: quella in cui si costruisce la cultura della sala.
+            Uno spazio aperto a tutti, ma con standard alti. Un luogo dove chi inizia si sente accolto e chi ambisce a
+            grandi risultati trova ciò che serve per raggiungerli.
+          </p>
+          <p>
+            Il nostro obiettivo è semplice: aiutarti a diventare la versione migliore di te, ogni giorno. Perché te lo
+            meriti, perché ne hai bisogno.
           </p>
         </div>
 

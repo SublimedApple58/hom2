@@ -1,22 +1,22 @@
 const faqItems = [
   {
-    question: 'Quando apre HOUSE OF MUSCLE 2.0?',
-    answer: 'Apertura prevista ad aprile 2026 a San Nicolo, Teramo, con fase di onboarding prioritaria per chi preordina.',
+    question: 'La palestra è davvero aperta 24 ore su 24, 7 giorni su 7?',
+    answer: 'Sì. House of Muscle è pensata per allenarti quando vuoi, senza limiti di orario.',
   },
   {
-    question: 'Il pagamento del prototipo e reale?',
+    question: 'È adatta anche a chi parte da zero?',
     answer:
-      'No. Registrazione e checkout in questa landing sono una simulazione completa pensata per presentazione commerciale.',
+      'Assolutamente sì. Non importa il livello di partenza: qui trovi un ambiente accogliente ma con standard alti.',
   },
   {
-    question: 'Che tipo di palestra state costruendo?',
+    question: 'Che tipo di attrezzature troverò?',
     answer:
-      'Una sala orientata alla performance: macchinari selezionati, impostazione hardcore e cultura di allenamento concreta.',
+      'Solo macchinari professionali dei brand top internazionali, scelti per sicurezza, ergonomia e risultati reali.',
   },
   {
-    question: 'Il pre-order cosa mi garantisce?',
+    question: 'Il flusso registrazione e pagamento di questa pagina è reale?',
     answer:
-      'Priorita di accesso in apertura, blocco dell offerta di lancio e canale diretto con il team per aggiornamenti ufficiali.',
+      'No. In questa fase è una simulazione prototipo per presentazione: nessun addebito reale viene effettuato.',
   },
 ];
 
@@ -25,7 +25,7 @@ export function FaqSection() {
     <section className="faq section-surface" id="faq">
       <div className="container">
         <p className="eyebrow">FAQ Rapida</p>
-        <h2>Domande frequenti sul pre-order</h2>
+        <h2>Domande frequenti</h2>
 
         <div className="faq__list" role="list">
           {faqItems.map((item) => (

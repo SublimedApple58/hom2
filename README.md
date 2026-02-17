@@ -1,6 +1,6 @@
-# HOUSE OF MUSCLE 2.0 - Landing Pre-Order (Prototype)
+# HOUSE OF MUSCLE - Landing Iscrizione (Prototype)
 
-Landing one-page in React + TypeScript per pre-order abbonamenti palestra.
+Landing one-page in React + TypeScript per iscrizione abbonamenti palestra.
 
 ## Requisiti
 

@@ -12,7 +12,7 @@ export function WizardStepPlan({ plans, selectedPlanId, onSelect, stepError }: W
   return (
     <div className="wizard-step">
       <h3>Scegli il piano</h3>
-      <p>Seleziona la formula di pre-order piu adatta al tuo obiettivo.</p>
+      <p>Seleziona la formula più adatta al tuo obiettivo.</p>
       <div className="wizard-plan-grid">
         {plans.map((plan) => (
           <button

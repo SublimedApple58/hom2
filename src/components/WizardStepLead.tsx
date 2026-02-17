@@ -10,7 +10,7 @@ export function WizardStepLead({ data, errors, onChange }: WizardStepLeadProps) 
   return (
     <div className="wizard-step">
       <h3>Dati personali</h3>
-      <p>Inserisci i tuoi dati per bloccare il pre-order.</p>
+      <p>Inserisci i tuoi dati per avviare la richiesta di iscrizione.</p>
       <div className="form-grid">
         <label>
           Nome
@@ -59,7 +59,7 @@ export function WizardStepLead({ data, errors, onChange }: WizardStepLeadProps) 
           checked={data.privacyAccepted}
           onChange={(event) => onChange('privacyAccepted', event.target.checked)}
         />
-        <span>Accetto l&apos;informativa privacy per la gestione del pre-order.</span>
+        <span>Accetto l&apos;informativa privacy per la gestione della richiesta.</span>
       </label>
       {errors.privacyAccepted ? <span className="field-error">{errors.privacyAccepted}</span> : null}
     </div>

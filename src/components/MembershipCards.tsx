@@ -10,11 +10,11 @@ export function MembershipCards({ plans, onSelectPlan }: MembershipCardsProps) {
   return (
     <section className="plans section-surface" id="abbonamenti">
       <div className="container">
-        <p className="eyebrow">Pre-order Membership</p>
-        <h2>Tre formule, una sola direzione: allenarti in una palestra vera.</h2>
+        <p className="eyebrow">Scegli come iniziare</p>
+        <h2>Allenati quando vuoi, con una formula che segue il tuo ritmo.</h2>
         <p className="plans__intro">
-          Scegli il modello che preferisci, blocca il tuo accesso prima dell&apos;apertura di aprile e assicurati una
-          posizione prioritaria nel lancio della struttura.
+          House of Muscle è aperta 24/7: scegli il piano più adatto al tuo percorso e inizia subito a lavorare sulla
+          versione migliore di te.
         </p>
 
         <div className="plans__table" role="list" aria-label="Piani abbonamento disponibili">
@@ -43,8 +43,7 @@ export function MembershipCards({ plans, onSelectPlan }: MembershipCardsProps) {
         </div>
 
         <p className="plans__smallprint">
-          Questo listino e dimostrativo per il prototipo cliente: i prezzi finali possono essere aggiornati prima della
-          pubblicazione definitiva.
+          Valori mostrati in demo per il prototipo. Il listino definitivo può essere aggiornato prima del lancio.
         </p>
       </div>
     </section>

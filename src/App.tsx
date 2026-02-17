@@ -44,7 +44,7 @@ function App() {
       <FooterContacts />
 
       <button type="button" className="mobile-sticky-cta" onClick={scrollToPreorder}>
-        Preordina ora
+        Inizia adesso
       </button>
     </>
   );

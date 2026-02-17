@@ -6,19 +6,16 @@ export function ManifestSection() {
       <div className="container manifest__layout">
         <div className="manifest__copy">
           <p className="eyebrow">Manifesto</p>
-          <h2>Qui il ferro non e arredamento: e cultura.</h2>
+          <h2>Qui non giudichiamo. Qui costruiamo.</h2>
+          <p>Crediamo che ognuno abbia una versione migliore dentro di sé.</p>
+          <p>Non importa l&apos;età. Non importa il livello di partenza. Non importa quante volte hai provato prima.</p>
+          <p>Quello che conta è decidere di iniziare.</p>
           <p>
-            HOUSE OF MUSCLE 2.0 nasce con un obiettivo semplice: riportare un modello di allenamento americano serio
-            in Italia, senza compromessi estetici e senza finta motivazione da social.
+            Costruiamo forza. Costruiamo sicurezza. Costruiamo disciplina. Che tu voglia perdere peso, tonificare,
+            aumentare massa muscolare o prepararti per competere, questo è il tuo spazio.
           </p>
-          <p>
-            Ogni zona e progettata per la performance: selezione macchine, progressione carichi, gestione flussi e
-            rispetto per chi si allena davvero. Niente fronzoli, niente ambiente da passerella.
-          </p>
-          <p className="manifest__quote">
-            “Se vuoi allenarti forte, devi allenarti in un posto che parla la tua stessa lingua: intensita, disciplina,
-            risultati.”
-          </p>
+          <p>La differenza non la fanno le promesse. La fanno le scelte quotidiane.</p>
+          <p className="manifest__quote">E questa può essere la tua prima scelta giusta.</p>
         </div>
 
         <figure className="manifest__media">

@@ -226,35 +226,35 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
   return (
     <section className="preorder section-surface" id="pre-order">
       <div className="container">
-        <p className="eyebrow">Checkout Pre-order</p>
-        <h2>Registra il tuo pre-order in 3 step.</h2>
+        <p className="eyebrow">Iscrizione rapida</p>
+        <h2>Completa la tua richiesta in 3 step.</h2>
 
         <div className="preorder__lead">
           <div>
             <p>
-              Questa fase e pensata per raccogliere i tuoi dati, farti scegliere la formula piu adatta e simulare il
-              checkout che verra attivato in versione definitiva.
+              Questo flusso ti permette di lasciare i tuoi dati, scegliere la formula più adatta e simulare il
+              checkout della versione finale.
             </p>
             <ul className="preorder__lead-points">
-              <li>Compilazione rapida ottimizzata per smartphone</li>
-              <li>Scelta piano immediata con riepilogo prezzi</li>
-              <li>Conferma finale demo senza addebito reale</li>
+              <li>Compilazione semplice ottimizzata per smartphone</li>
+              <li>Scelta piano immediata con riepilogo chiaro</li>
+              <li>Conferma demo senza addebito reale</li>
             </ul>
           </div>
           <img src={mediaAssets.preorder} alt="Cliente in fase di pagamento digitale" loading="lazy" />
         </div>
 
         <div className="preorder__layout">
-          <aside className="preorder__summary" aria-label="Riepilogo pre-order">
-            <h3>Riepilogo rapido</h3>
-            <p>Seleziona il tuo piano, completa i dati e finalizza il pagamento mock.</p>
+          <aside className="preorder__summary" aria-label="Riepilogo iscrizione">
+            <h3>Riepilogo richiesta</h3>
+            <p>Seleziona il tuo piano, completa i dati e finalizza la simulazione.</p>
             <div className="summary-box">
               <strong>Piano selezionato</strong>
               <p>{selectedPlan ? selectedPlan.name : 'Nessun piano selezionato'}</p>
               <strong>Importo</strong>
               <p>{selectedPlan ? `${formatEuro(selectedPlan.price)} ${selectedPlan.billingType}` : '--'}</p>
             </div>
-            <p className="summary-note">Apertura prevista ad aprile 2026. Posti pre-order limitati.</p>
+            <p className="summary-note">House of Muscle sarà operativa 24/7: il tuo tempo conta.</p>
           </aside>
 
           <div className="wizard-panel" id="preorder-wizard">
@@ -333,7 +333,7 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
                       onClick={handleSubmit}
                       disabled={state.status === 'submitting'}
                     >
-                      {state.status === 'submitting' ? 'Elaborazione demo...' : 'Conferma pre-order demo'}
+                      {state.status === 'submitting' ? 'Elaborazione demo...' : 'Conferma richiesta demo'}
                     </button>
                   )}
                 </div>
