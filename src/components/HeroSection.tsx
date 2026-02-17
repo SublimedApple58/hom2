@@ -1,5 +1,4 @@
 import { appConfig } from '../config';
-import { mediaAssets } from '../media';
 
 interface HeroSectionProps {
   onPrimaryCta: () => void;
@@ -8,10 +7,6 @@ interface HeroSectionProps {
 export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
   return (
     <section className="hero section-surface" id="top">
-      <div className="hero__backdrop" aria-hidden="true">
-        <img src={mediaAssets.heroMain} alt="Sala pesi intensa con macchinari professionali" loading="eager" />
-      </div>
-
       <div className="container hero__content">
         <div className="hero__copy">
           <p className="eyebrow">Nuova apertura a San Nicolò</p>
@@ -34,8 +29,8 @@ export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
             <button type="button" className="btn btn--primary" onClick={onPrimaryCta}>
               Inizia adesso
             </button>
-            <a href="#manifesto" className="btn btn--ghost">
-              Leggi il manifesto
+            <a href="#equipment" className="btn btn--ghost">
+              Scopri le attrezzature
             </a>
           </div>
 
@@ -44,15 +39,6 @@ export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
             <li>Attrezzature di livello mondiale</li>
             <li>Per ogni eta e livello</li>
           </ul>
-        </div>
-
-        <div className="hero__visuals" aria-label="Moodboard palestra">
-          <figure>
-            <img src={mediaAssets.heroSecondary} alt="Atleta in allenamento con attrezzatura professionale" />
-          </figure>
-          <figure>
-            <img src={mediaAssets.atmosphereOne} alt="Dettaglio manubri e zona libera" loading="lazy" />
-          </figure>
         </div>
       </div>
     </section>

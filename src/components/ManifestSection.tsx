@@ -5,7 +5,6 @@ export function ManifestSection() {
     <section className="manifest section-surface" id="manifesto">
       <div className="container manifest__layout">
         <div className="manifest__copy">
-          <p className="eyebrow">Manifesto</p>
           <h2>Qui non giudichiamo. Qui costruiamo.</h2>
           <p>Crediamo che ognuno abbia una versione migliore dentro di sé.</p>
           <p>Non importa l&apos;età. Non importa il livello di partenza. Non importa quante volte hai provato prima.</p>
