@@ -36,7 +36,6 @@ export function EquipmentSection() {
 
           <div className="equipment__visuals">
             <img src={mediaAssets.equipmentOne} alt="Area attrezzi professionale" loading="lazy" />
-            <img src={mediaAssets.equipmentTwo} alt="Dettaglio macchinari per allenamento" loading="lazy" />
           </div>
         </div>
       </div>
