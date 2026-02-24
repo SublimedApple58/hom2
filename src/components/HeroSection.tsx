@@ -14,25 +14,26 @@ export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
 
       <div className="container hero__content">
         <div className="hero__copy">
-          <p className="eyebrow">Nuova apertura a San Nicolò</p>
-          <h1 className="hero__title">Diventa la versione migliore di te.</h1>
+          <p className="eyebrow">House of Muscle • San Nicolò, Teramo</p>
+          <h1 className="hero__title">La palestra è attiva. Ora tocca a te.</h1>
           <p className="hero__location">
-            {appConfig.brandName}: la nuova palestra di San Nicolò, aperta 24 ore su 24, 7 giorni su 7.
+            {appConfig.brandName}: aperta 24 ore su 24, 7 giorni su 7, con macchinari professionali top di gamma.
           </p>
           <p className="hero__subtitle">
-            A San Nicolò sta arrivando qualcosa di diverso. Una palestra pensata per chi vuole migliorarsi davvero.
+            Non è una palestra qualunque: è uno spazio costruito per chi vuole risultati concreti, disciplina e
+            crescita.
           </p>
           <p className="hero__subtitle">
-            Che tu voglia tornare in forma, sentirti meglio con il tuo corpo o portare le tue performance al livello
-            successivo, qui troverai l&apos;ambiente giusto per farlo.
+            Che tu voglia tornare in forma, sentirti meglio nel tuo corpo o alzare il livello delle performance, qui
+            trovi il contesto giusto per farlo ogni giorno.
           </p>
           <p className="hero__subtitle">
-            Allenati quando vuoi. Modella il tuo fisico come non hai mai fatto prima. Il momento giusto è adesso.
+            Allenati quando vuoi. Modella il tuo fisico con standard alti. Il momento giusto è adesso.
           </p>
 
           <div className="hero__actions">
             <button type="button" className="btn btn--primary" onClick={onPrimaryCta}>
-              Inizia adesso
+              Iscriviti ora
             </button>
             <a href="#equipment" className="btn btn--ghost">
               Scopri le attrezzature
@@ -41,8 +42,8 @@ export function HeroSection({ onPrimaryCta }: HeroSectionProps) {
 
           <ul className="hero__kickers" aria-label="Valori chiave">
             <li>Aperta 24/7</li>
-            <li>Attrezzature di livello mondiale</li>
-            <li>Per ogni eta e livello</li>
+            <li>Macchinari premium USA</li>
+            <li>Per ogni età e livello</li>
           </ul>
         </div>
       </div>

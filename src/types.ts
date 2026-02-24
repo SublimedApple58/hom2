@@ -15,7 +15,7 @@ export interface LeadFormData {
   privacyAccepted: boolean;
 }
 
-export interface MockPaymentData {
+export interface PaymentData {
   cardNumber: string;
   cardHolder: string;
   expiry: string;
@@ -28,14 +28,12 @@ export interface CheckoutState {
   step: 1 | 2 | 3;
   selectedPlanId: string;
   leadData: LeadFormData;
-  paymentData: MockPaymentData;
+  paymentData: PaymentData;
   status: CheckoutStatus;
 }
 
 export interface AppConfig {
   brandName: string;
-  openingMonth: string;
-  openingYear: number;
   city: string;
   province: string;
   contactWhatsApp: string;

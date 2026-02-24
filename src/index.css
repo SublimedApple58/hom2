@@ -400,36 +400,36 @@ ul {
   color: rgba(255, 255, 255, 0.58);
 }
 
-.preorder {
+.signup {
   background: transparent;
 }
 
-.preorder__lead {
+.signup__lead {
   display: grid;
   gap: 0.9rem;
   margin-bottom: 1.2rem;
 }
 
-.preorder__lead img {
+.signup__lead img {
   width: 100%;
   min-height: 200px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.preorder__lead-points {
+.signup__lead-points {
   padding-left: 1.1rem;
   display: grid;
   gap: 0.45rem;
   color: rgba(255, 255, 255, 0.95);
 }
 
-.preorder__layout {
+.signup__layout {
   display: grid;
   gap: 1rem;
 }
 
-.preorder__summary {
+.signup__summary {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(0, 0, 0, 0.45);
@@ -821,15 +821,15 @@ input:focus {
     margin-bottom: 0.6rem;
   }
 
-  .preorder__lead {
+  .signup__lead {
     margin-bottom: 1rem;
   }
 
-  .preorder__lead img {
+  .signup__lead img {
     min-height: 170px;
   }
 
-  .preorder__summary,
+  .signup__summary,
   .wizard-panel {
     padding: 0.8rem;
   }
@@ -902,7 +902,7 @@ input:focus {
   .manifest__layout,
   .equipment__layout,
   .atmosphere__layout,
-  .preorder__lead {
+  .signup__lead {
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
@@ -911,7 +911,7 @@ input:focus {
     order: -1;
   }
 
-  .preorder__lead--reverse > img {
+  .signup__lead--reverse > img {
     order: -1;
   }
 
@@ -949,12 +949,12 @@ input:focus {
     grid-column: auto;
   }
 
-  .preorder__layout {
+  .signup__layout {
     grid-template-columns: 320px minmax(0, 1fr);
     align-items: start;
   }
 
-  .preorder__summary {
+  .signup__summary {
     position: sticky;
     top: 1rem;
   }

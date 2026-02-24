@@ -9,7 +9,7 @@ export function FooterContacts() {
         <div>
           <strong>{appConfig.brandName}</strong>
           <p>
-            {appConfig.city}, {appConfig.province} - nuova palestra aperta 24 ore su 24, 7 giorni su 7.
+            {appConfig.city}, {appConfig.province} - palestra attiva 24 ore su 24, 7 giorni su 7.
           </p>
         </div>
         <div className="footer__links">

@@ -1,18 +1,11 @@
 import { useEffect, useMemo, useReducer, useState } from 'react';
 import { mediaAssets } from '../media';
 import { formatEuro } from '../plans';
-import type { CheckoutState, CheckoutStatus, LeadFormData, MembershipPlan, MockPaymentData } from '../types';
+import type { CheckoutState, CheckoutStatus, LeadFormData, MembershipPlan, PaymentData } from '../types';
 import { SuccessPanel } from './SuccessPanel';
 import { WizardStepLead } from './WizardStepLead';
-import { WizardStepPaymentMock } from './WizardStepPaymentMock';
+import { WizardStepPayment } from './WizardStepPayment';
 import { WizardStepPlan } from './WizardStepPlan';
-
-interface PreorderWizardProps {
-  plans: MembershipPlan[];
-  disclaimerText: string;
-  planIntent: string | null;
-  onPlanIntentHandled: () => void;
-}
 
 interface SetLeadAction {
   type: 'set_lead';
@@ -22,7 +15,7 @@ interface SetLeadAction {
 
 interface SetPaymentAction {
   type: 'set_payment';
-  field: keyof MockPaymentData;
+  field: keyof PaymentData;
   value: string;
 }
 
@@ -43,7 +36,7 @@ const initialLeadData: LeadFormData = {
   privacyAccepted: false,
 };
 
-const initialPaymentData: MockPaymentData = {
+const initialPaymentData: PaymentData = {
   cardNumber: '',
   cardHolder: '',
   expiry: '',
@@ -133,8 +126,8 @@ function validateLeadData(data: LeadFormData): Partial<Record<keyof LeadFormData
   return errors;
 }
 
-function validatePaymentData(data: MockPaymentData): Partial<Record<keyof MockPaymentData, string>> {
-  const errors: Partial<Record<keyof MockPaymentData, string>> = {};
+function validatePaymentData(data: PaymentData): Partial<Record<keyof PaymentData, string>> {
+  const errors: Partial<Record<keyof PaymentData, string>> = {};
   const cardDigits = data.cardNumber.replace(/\D/g, '');
 
   if (cardDigits.length < 13) {
@@ -157,10 +150,17 @@ function isObjectEmpty(value: object): boolean {
   return Object.keys(value).length === 0;
 }
 
-export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntentHandled }: PreorderWizardProps) {
+interface SignupWizardProps {
+  plans: MembershipPlan[];
+  disclaimerText: string;
+  planIntent: string | null;
+  onPlanIntentHandled: () => void;
+}
+
+export function SignupWizard({ plans, disclaimerText, planIntent, onPlanIntentHandled }: SignupWizardProps) {
   const [state, dispatch] = useReducer(checkoutReducer, initialState);
   const [leadErrors, setLeadErrors] = useState<Partial<Record<keyof LeadFormData, string>>>({});
-  const [paymentErrors, setPaymentErrors] = useState<Partial<Record<keyof MockPaymentData, string>>>({});
+  const [paymentErrors, setPaymentErrors] = useState<Partial<Record<keyof PaymentData, string>>>({});
   const [stepError, setStepError] = useState('');
 
   const selectedPlan = useMemo(
@@ -224,40 +224,40 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
   const steps = ['Dati', 'Piano', 'Pagamento'];
 
   return (
-    <section className="preorder section-surface" id="pre-order">
+    <section className="signup section-surface" id="iscrizione">
       <div className="container">
-        <p className="eyebrow">Iscrizione rapida</p>
-        <h2>Completa la tua richiesta in 3 step.</h2>
+        <p className="eyebrow">Iscrizione online</p>
+        <h2>Attiva il tuo abbonamento in 3 step.</h2>
 
-        <div className="preorder__lead preorder__lead--reverse">
+        <div className="signup__lead signup__lead--reverse">
           <div>
             <p>
-              Questo flusso ti permette di lasciare i tuoi dati, scegliere la formula più adatta e simulare il
-              checkout della versione finale.
+              La palestra è già operativa: compila i dati, scegli la formula e completa l&apos;attivazione in modo
+              rapido, anche da smartphone.
             </p>
-            <ul className="preorder__lead-points">
-              <li>Compilazione semplice ottimizzata per smartphone</li>
-              <li>Scelta piano immediata con riepilogo chiaro</li>
-              <li>Conferma demo senza addebito reale</li>
+            <ul className="signup__lead-points">
+              <li>Onboarding essenziale, chiaro e veloce</li>
+              <li>Selezione piano con riepilogo immediato</li>
+              <li>Attivazione abbonamento senza passaggi inutili</li>
             </ul>
           </div>
-          <img src={mediaAssets.preorder} alt="Cliente in fase di pagamento digitale" loading="lazy" />
+          <img src={mediaAssets.signup} alt="Cliente durante iscrizione digitale in palestra" loading="lazy" />
         </div>
 
-        <div className="preorder__layout">
-          <aside className="preorder__summary" aria-label="Riepilogo iscrizione">
-            <h3>Riepilogo richiesta</h3>
-            <p>Seleziona il tuo piano, completa i dati e finalizza la simulazione.</p>
+        <div className="signup__layout">
+          <aside className="signup__summary" aria-label="Riepilogo iscrizione">
+            <h3>Riepilogo iscrizione</h3>
+            <p>Completa i dati, scegli il piano e finalizza l&apos;attivazione.</p>
             <div className="summary-box">
               <strong>Piano selezionato</strong>
               <p>{selectedPlan ? selectedPlan.name : 'Nessun piano selezionato'}</p>
               <strong>Importo</strong>
               <p>{selectedPlan ? `${formatEuro(selectedPlan.price)} ${selectedPlan.billingType}` : '--'}</p>
             </div>
-            <p className="summary-note">House of Muscle sarà operativa 24/7: il tuo tempo conta.</p>
+            <p className="summary-note">House of Muscle è aperta 24/7: allenati quando vuoi.</p>
           </aside>
 
-          <div className="wizard-panel" id="preorder-wizard">
+          <div className="wizard-panel" id="signup-wizard">
             <div className="wizard-progress" role="list" aria-label="Progressione checkout">
               {steps.map((stepLabel, index) => {
                 const stepNumber = index + 1;
@@ -301,7 +301,7 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
                 ) : null}
 
                 {state.step === 3 ? (
-                  <WizardStepPaymentMock
+                  <WizardStepPayment
                     data={state.paymentData}
                     errors={paymentErrors}
                     onChange={(field, value) => dispatch({ type: 'set_payment', field, value })}
@@ -331,7 +331,7 @@ export function PreorderWizard({ plans, disclaimerText, planIntent, onPlanIntent
                       onClick={handleSubmit}
                       disabled={state.status === 'submitting'}
                     >
-                      {state.status === 'submitting' ? 'Elaborazione demo...' : 'Conferma richiesta demo'}
+                      {state.status === 'submitting' ? 'Attivazione in corso...' : 'Attiva abbonamento'}
                     </button>
                   )}
                 </div>

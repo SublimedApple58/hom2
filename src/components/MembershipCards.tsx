@@ -10,11 +10,11 @@ export function MembershipCards({ plans, onSelectPlan }: MembershipCardsProps) {
   return (
     <section className="plans section-surface" id="abbonamenti">
       <div className="container">
-        <p className="eyebrow">Scegli come iniziare</p>
-        <h2>Allenati quando vuoi, con una formula che segue il tuo ritmo.</h2>
+        <p className="eyebrow">Abbonamenti attivi</p>
+        <h2>Scegli il piano e allenati subito.</h2>
         <p className="plans__intro">
-          House of Muscle è aperta 24/7: scegli il piano più adatto al tuo percorso e inizia subito a lavorare sulla
-          versione migliore di te.
+          House of Muscle è operativa 24/7: scegli la formula che segue il tuo obiettivo e attiva l&apos;iscrizione in
+          pochi minuti.
         </p>
 
         <div className="plans__table" role="list" aria-label="Piani abbonamento disponibili">
@@ -35,16 +35,14 @@ export function MembershipCards({ plans, onSelectPlan }: MembershipCardsProps) {
                   {formatEuro(plan.price)} <span>{plan.billingType}</span>
                 </p>
                 <button type="button" className="btn btn--primary" onClick={() => onSelectPlan(plan.id)}>
-                  Seleziona
+                  Attiva ora
                 </button>
               </div>
             </article>
           ))}
         </div>
 
-        <p className="plans__smallprint">
-          Valori mostrati in demo per il prototipo. Il listino definitivo può essere aggiornato prima del lancio.
-        </p>
+        <p className="plans__smallprint">Tariffe aggiornabili in base a promozioni e servizi inclusi.</p>
       </div>
     </section>
   );

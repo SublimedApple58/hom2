@@ -1,6 +1,6 @@
-# HOUSE OF MUSCLE - Landing Iscrizione (Prototype)
+# HOUSE OF MUSCLE - Sito Palestra
 
-Landing one-page in React + TypeScript per iscrizione abbonamenti palestra.
+Sito one-page in React + TypeScript per presentazione palestra e iscrizione abbonamenti.
 
 ## Requisiti
 
@@ -31,7 +31,7 @@ npm run preview
 - Copy sezioni: file in `/Users/tizianodifelice/Desktop/hom2/src/components/`
 - Palette, tipografia, responsive, animazioni: `/Users/tizianodifelice/Desktop/hom2/src/index.css`
 
-## Note demo
+## Note integrazione
 
-- Registrazione e pagamento sono mock (nessun backend, nessun addebito reale).
-- Wallet Apple Pay / Google Pay sono badge visuali non operativi.
+- Il flusso di iscrizione lato frontend è completo, ma l'integrazione backend/pagamenti è ancora da collegare.
+- Wallet Apple Pay / Google Pay sono badge visuali finché non viene integrato un gateway reale.

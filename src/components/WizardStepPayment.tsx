@@ -1,17 +1,17 @@
-import type { MockPaymentData } from '../types';
+import type { PaymentData } from '../types';
 
-interface WizardStepPaymentMockProps {
-  data: MockPaymentData;
-  errors: Partial<Record<keyof MockPaymentData, string>>;
-  onChange: (field: keyof MockPaymentData, value: string) => void;
+interface WizardStepPaymentProps {
+  data: PaymentData;
+  errors: Partial<Record<keyof PaymentData, string>>;
+  onChange: (field: keyof PaymentData, value: string) => void;
 }
 
-export function WizardStepPaymentMock({ data, errors, onChange }: WizardStepPaymentMockProps) {
+export function WizardStepPayment({ data, errors, onChange }: WizardStepPaymentProps) {
   return (
     <div className="wizard-step">
-      <h3>Pagamento (mock)</h3>
-      <p>Simulazione checkout prototipo. Nessun addebito reale verra effettuato.</p>
-      <div className="wallet-badges" aria-label="Wallet disponibili in demo">
+      <h3>Pagamento</h3>
+      <p>Inserisci i dati di pagamento per completare l&apos;attivazione del piano scelto.</p>
+      <div className="wallet-badges" aria-label="Wallet disponibili">
         <span>Apple Pay</span>
         <span>Google Pay</span>
       </div>

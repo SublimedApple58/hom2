@@ -14,9 +14,9 @@ const faqItems = [
       'Solo macchinari professionali dei brand top internazionali, scelti per sicurezza, ergonomia e risultati reali.',
   },
   {
-    question: 'Il flusso registrazione e pagamento di questa pagina è reale?',
+    question: 'Quando posso iniziare ad allenarmi dopo l’iscrizione?',
     answer:
-      'No. In questa fase è una simulazione prototipo per presentazione: nessun addebito reale viene effettuato.',
+      'Subito dopo completamento e verifica iscrizione: riceverai riepilogo e indicazioni operative ai contatti inseriti.',
   },
 ];
 

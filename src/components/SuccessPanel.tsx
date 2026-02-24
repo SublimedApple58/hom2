@@ -10,17 +10,17 @@ interface SuccessPanelProps {
 export function SuccessPanel({ selectedPlan, leadData, onReset }: SuccessPanelProps) {
   return (
     <div className="success-panel" role="status" aria-live="polite">
-      <p className="eyebrow">Richiesta confermata (demo)</p>
-      <h3>Registrazione simulata completata.</h3>
+      <p className="eyebrow">Iscrizione completata</p>
+      <h3>Attivazione registrata con successo.</h3>
       <p>
-        Abbiamo salvato la richiesta per <strong>{leadData.firstName} {leadData.lastName}</strong> sul piano{' '}
+        Abbiamo registrato l&apos;iscrizione di <strong>{leadData.firstName} {leadData.lastName}</strong> sul piano{' '}
         <strong>{selectedPlan.name}</strong> ({formatEuro(selectedPlan.price)} {selectedPlan.billingType}).
       </p>
       <p>
-        Contatto riepilogo: {leadData.email} - {leadData.phone}
+        Contatti associati: {leadData.email} - {leadData.phone}
       </p>
       <button type="button" className="btn btn--primary" onClick={onReset}>
-        Nuova richiesta demo
+        Nuova iscrizione
       </button>
     </div>
   );

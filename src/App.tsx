@@ -7,14 +7,14 @@ import { FooterContacts } from './components/FooterContacts';
 import { HeroSection } from './components/HeroSection';
 import { ManifestSection } from './components/ManifestSection';
 import { MembershipCards } from './components/MembershipCards';
-import { PreorderWizard } from './components/PreorderWizard';
+import { SignupWizard } from './components/SignupWizard';
 import { membershipPlans } from './plans';
 
 function App() {
   const [planIntent, setPlanIntent] = useState<string | null>(null);
 
-  const scrollToPreorder = () => {
-    document.getElementById('pre-order')?.scrollIntoView({
+  const scrollToSignup = () => {
+    document.getElementById('iscrizione')?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -22,18 +22,18 @@ function App() {
 
   const handlePlanSelect = (planId: string) => {
     setPlanIntent(planId);
-    scrollToPreorder();
+    scrollToSignup();
   };
 
   return (
     <>
-      <HeroSection onPrimaryCta={scrollToPreorder} />
+      <HeroSection onPrimaryCta={scrollToSignup} />
       <main>
         <ManifestSection />
         <EquipmentSection />
         <AtmosphereSection />
         <MembershipCards plans={membershipPlans} onSelectPlan={handlePlanSelect} />
-        <PreorderWizard
+        <SignupWizard
           plans={membershipPlans}
           disclaimerText={appConfig.disclaimerText}
           planIntent={planIntent}
@@ -43,8 +43,8 @@ function App() {
       </main>
       <FooterContacts />
 
-      <button type="button" className="mobile-sticky-cta" onClick={scrollToPreorder}>
-        Inizia adesso
+      <button type="button" className="mobile-sticky-cta" onClick={scrollToSignup}>
+        Iscriviti ora
       </button>
     </>
   );
