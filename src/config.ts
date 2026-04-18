@@ -4,8 +4,10 @@
  */
 export const APP_URL = import.meta.env.VITE_APP_URL ?? "https://app.houseofmuscle.it";
 
-export const LOGIN_URL = `${APP_URL}/login`;
-export const CHECKOUT_URL = `${APP_URL}/checkout`;
+/** Login: landing del gestionale (home post-login). */
+export const LOGIN_URL = APP_URL;
+/** Iscrizione: pagina di registrazione del gestionale. */
+export const CHECKOUT_URL = `${APP_URL}/register`;
 
 /** Helper per la CTA "Iscriviti a tier X" delle pricing card. */
 export function checkoutUrlFor(tier: "MONTHLY" | "YEARLY" | "BIENNIAL"): string {
