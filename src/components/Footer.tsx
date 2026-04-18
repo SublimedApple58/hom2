@@ -1,5 +1,29 @@
-import { Instagram, Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 import { LOGIN_URL, CHECKOUT_URL } from "../config";
+
+/**
+ * Inline SVG per il logo Instagram — lucide v1 ha rimosso i brand icons,
+ * quindi lo disegniamo noi nello stesso stile (24x24, stroke 2, currentColor).
+ */
+function InstagramGlyph({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
 
 /**
  * Footer con contatti placeholder — l'utente li sostituirà con i dati reali.
@@ -28,7 +52,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Instagram size={16} />
+              <InstagramGlyph size={16} />
             </a>
             <a
               href="mailto:info@houseofmuscle.it"
