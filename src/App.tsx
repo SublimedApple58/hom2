@@ -1,53 +1,32 @@
-import { useState } from 'react';
-import { appConfig } from './config';
-import { AtmosphereSection } from './components/AtmosphereSection';
-import { EquipmentSection } from './components/EquipmentSection';
-import { FaqSection } from './components/FaqSection';
-import { FooterContacts } from './components/FooterContacts';
-import { HeroSection } from './components/HeroSection';
-import { ManifestSection } from './components/ManifestSection';
-import { MembershipCards } from './components/MembershipCards';
-import { SignupWizard } from './components/SignupWizard';
-import { membershipPlans } from './plans';
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { TrustRow } from "./components/TrustRow";
+import { Features } from "./components/Features";
+import { Pricing } from "./components/Pricing";
+import { HowItWorks } from "./components/HowItWorks";
+import { Faq } from "./components/Faq";
+import { FinalCta } from "./components/FinalCta";
+import { Footer } from "./components/Footer";
 
-function App() {
-  const [planIntent, setPlanIntent] = useState<string | null>(null);
-
-  const scrollToSignup = () => {
-    document.getElementById('iscrizione')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
-
-  const handlePlanSelect = (planId: string) => {
-    setPlanIntent(planId);
-    scrollToSignup();
-  };
-
+/**
+ * Landing page pubblica di House of Muscle.
+ * Struttura (fisso): Nav → Hero → Trust → Features → Pricing → HowItWorks → FAQ → CTA finale → Footer.
+ * Tutte le CTA primarie puntano al gestionale (APP_URL/checkout|login) per chiudere il funnel lì.
+ */
+export default function App() {
   return (
     <>
-      <HeroSection onPrimaryCta={scrollToSignup} />
-      <main>
-        <ManifestSection />
-        <EquipmentSection />
-        <AtmosphereSection />
-        <MembershipCards plans={membershipPlans} onSelectPlan={handlePlanSelect} />
-        <SignupWizard
-          plans={membershipPlans}
-          disclaimerText={appConfig.disclaimerText}
-          planIntent={planIntent}
-          onPlanIntentHandled={() => setPlanIntent(null)}
-        />
-        <FaqSection />
+      <Navbar />
+      <main className="landing">
+        <Hero />
+        <TrustRow />
+        <Features />
+        <Pricing />
+        <HowItWorks />
+        <Faq />
+        <FinalCta />
       </main>
-      <FooterContacts />
-
-      <button type="button" className="mobile-sticky-cta" onClick={scrollToSignup}>
-        Iscriviti ora
-      </button>
+      <Footer />
     </>
   );
 }
-
-export default App;

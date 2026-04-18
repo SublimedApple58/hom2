@@ -1,37 +1,54 @@
-# HOUSE OF MUSCLE - Sito Palestra
+# House of Muscle — Landing
 
-Sito one-page in React + TypeScript per presentazione palestra e iscrizione abbonamenti.
+Landing page pubblica di **House of Muscle**. Vite + React 19 + TypeScript, CSS puro (nessun Tailwind), design system allineato al gestionale interno.
+
+Tutte le CTA principali ("Iscriviti", "Accedi", pricing card) puntano al gestionale in hosting su `https://app.houseofmuscle.it`, dove avvengono iscrizione, pagamento e gestione dell'abbonamento.
 
 ## Requisiti
 
-- Node.js 20+
+- Node 20+
 - npm 10+
 
-## Avvio locale
+## Sviluppo locale
 
 ```bash
 npm install
 npm run dev
 ```
 
-Apri il link mostrato in console (tipicamente `http://localhost:5173`).
+Apri `http://localhost:5173`.
 
-## Build produzione
+## Build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Dove modificare rapidamente
+## Variabili d'ambiente
 
-- Brand, apertura, contatti, disclaimer: `/Users/tizianodifelice/Desktop/hom2/src/config.ts`
-- Prezzi e vantaggi piani: `/Users/tizianodifelice/Desktop/hom2/src/plans.ts`
-- Immagini stock usate in landing: `/Users/tizianodifelice/Desktop/hom2/src/media.ts`
-- Copy sezioni: file in `/Users/tizianodifelice/Desktop/hom2/src/components/`
-- Palette, tipografia, responsive, animazioni: `/Users/tizianodifelice/Desktop/hom2/src/index.css`
+Copia `.env.example` in `.env.local` se vuoi sovrascrivere l'URL del gestionale:
 
-## Note integrazione
+```
+VITE_APP_URL=https://app.houseofmuscle.it
+```
 
-- Il flusso di iscrizione lato frontend è completo, ma l'integrazione backend/pagamenti è ancora da collegare.
-- Wallet Apple Pay / Google Pay sono badge visuali finché non viene integrato un gateway reale.
+In assenza di valore, il default è `https://app.houseofmuscle.it`.
+
+## Dove mettere mano
+
+| File | Contenuto |
+|------|-----------|
+| `src/index.css` | Design tokens, palette, typography, componenti (`.button-primary`, `.dash-card`, `.pricing-card`, …) |
+| `src/config.ts` | URL gestionale e helper CTA |
+| `src/lib/plans.ts` | Listino abbonamenti (MONTHLY/YEARLY/BIENNIAL) — single source of truth |
+| `src/components/*.tsx` | Una sezione per file (Navbar, Hero, Pricing, Faq, …) |
+| `public/logo.jpeg` + `favicon*.png` | Brand asset |
+
+## Deploy (Vercel)
+
+Il progetto è configurato per Vercel (`vercel.json` → framework Vite).
+
+1. Nuovo progetto Vercel con questa repo.
+2. Imposta `VITE_APP_URL=https://app.houseofmuscle.it` nelle env di produzione.
+3. Assegna come dominio pubblico `houseofmuscle.it` (il sottodominio `app.houseofmuscle.it` resta sul progetto del gestionale).
