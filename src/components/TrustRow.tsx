@@ -1,9 +1,5 @@
-import { CalendarDays, ShieldCheck, Smartphone } from "lucide-react";
+import { CalendarDays, Clock, RefreshCw, Crosshair, Users, Trophy } from "lucide-react";
 
-/**
- * Tre "fatti oggettivi" sul prodotto — non claim marketing.
- * Replica del pattern .dash-stats-row del gestionale.
- */
 export function TrustRow() {
   return (
     <section aria-label="In breve" className="landing-trust">
@@ -19,21 +15,51 @@ export function TrustRow() {
 
       <div className="landing-trust-item">
         <span className="landing-trust-icon" aria-hidden="true">
-          <ShieldCheck size={20} />
+          <Clock size={20} />
         </span>
         <span className="landing-trust-text">
-          <span className="landing-trust-value">Iscrizione in regola</span>
-          <span className="landing-trust-label">Documenti e certificato gestiti online</span>
+          <span className="landing-trust-value">24 ore al giorno</span>
+          <span className="landing-trust-label">Accesso H24 con codice personale</span>
         </span>
       </div>
 
       <div className="landing-trust-item">
         <span className="landing-trust-icon" aria-hidden="true">
-          <Smartphone size={20} />
+          <RefreshCw size={20} />
         </span>
         <span className="landing-trust-text">
-          <span className="landing-trust-value">Tutto digitale</span>
-          <span className="landing-trust-label">Niente carta, niente code</span>
+          <span className="landing-trust-value">Parco macchine in continuo aggiornamento</span>
+          <span className="landing-trust-label">Attrezzatura sempre al top</span>
+        </span>
+      </div>
+
+      <div className="landing-trust-item">
+        <span className="landing-trust-icon" aria-hidden="true">
+          <Crosshair size={20} />
+        </span>
+        <span className="landing-trust-text">
+          <span className="landing-trust-value">Eccellenza biomeccanica</span>
+          <span className="landing-trust-label">Macchinari costruiti sulla persona e non il contrario</span>
+        </span>
+      </div>
+
+      <div className="landing-trust-item">
+        <span className="landing-trust-icon" aria-hidden="true">
+          <Users size={20} />
+        </span>
+        <span className="landing-trust-text">
+          <span className="landing-trust-value">Personale altamente qualificato</span>
+          <span className="landing-trust-label">Non abbiamo saputi. Abbiamo patuti.</span>
+        </span>
+      </div>
+
+      <div className="landing-trust-item">
+        <span className="landing-trust-icon" aria-hidden="true">
+          <Trophy size={20} />
+        </span>
+        <span className="landing-trust-text">
+          <span className="landing-trust-value">Gente che ha fatto il lavoro</span>
+          <span className="landing-trust-label">Gente che è cambiata davvero.</span>
         </span>
       </div>
     </section>

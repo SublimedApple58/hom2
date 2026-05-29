@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero";
 import { TrustRow } from "./components/TrustRow";
 import { Features } from "./components/Features";
 import { Pricing } from "./components/Pricing";
+import { Story } from "./components/Story";
 import { HowItWorks } from "./components/HowItWorks";
 import { Faq } from "./components/Faq";
 import { FinalCta } from "./components/FinalCta";
@@ -22,6 +23,7 @@ export default function App() {
         <TrustRow />
         <Features />
         <Pricing />
+        <Story />
         <HowItWorks />
         <Faq />
         <FinalCta />

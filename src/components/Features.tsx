@@ -1,9 +1,5 @@
-import { Dumbbell, Activity, Waves, type LucideIcon } from "lucide-react";
+import { Dumbbell, Activity, Waves, ShowerHead, type LucideIcon } from "lucide-react";
 
-/**
- * "Cosa trovi in palestra" — solo aree fisiche che esistono oggettivamente.
- * Zero claim su servizi soft (corsi, PT, schede) che dipendono dall'istruttore.
- */
 type FeatureItem = {
   icon: LucideIcon;
   title: string;
@@ -14,20 +10,20 @@ const FEATURES: FeatureItem[] = [
   {
     icon: Dumbbell,
     title: "Area pesi liberi",
-    desc: "Bilancieri olimpici, manubri da 2 a 50 kg, panche piane, inclinate e declinate, rack per squat e stacco."
+    desc: "Bilancieri, manubri fino a 70 kg. Panche e rack."
   },
   {
     icon: Activity,
     title: "Macchine isotoniche",
-    desc: "Linea completa per ogni gruppo muscolare: pettorali, dorso, spalle, gambe, braccia, core."
+    desc: "Linea completa per ogni gruppo muscolare. Più di 70 postazioni."
   },
   {
     icon: Waves,
     title: "Area cardio",
-    desc: "Tapis roulant, cyclette verticali e reclinate, ellittiche, vogatori. Sempre abbastanza macchine disponibili."
+    desc: "Treadmill e climbing di ultima generazione."
   },
   {
-    icon: Dumbbell,
+    icon: ShowerHead,
     title: "Spogliatoi e servizi",
     desc: "Docce calde, armadietti personali, phon. Spazi puliti e riordinati più volte al giorno."
   }
