@@ -1,10 +1,9 @@
 /**
  * Listino abbonamenti House of Muscle — single source of truth per la landing.
  * Allineato 1:1 con `TIER_CATALOG` nel gestionale (`apps/web/src/lib/subscription.ts`).
- * Se cambia il listino, aggiornare qui E lì insieme.
  */
 
-export type PlanId = "MONTHLY" | "YEARLY" | "BIENNIAL";
+export type PlanId = "DAILY" | "MONTHLY" | "QUARTERLY" | "YEARLY" | "BIENNIAL";
 
 export type PlanInstallments = {
   count: number;
@@ -16,29 +15,44 @@ export type Plan = {
   label: string;
   oneShotCents: number;
   installments: PlanInstallments | null;
-  /** Durata "umana" da mostrare nelle card. */
   durationLabel: string;
-  /** Unità di prezzo: "al mese" / "all'anno" / "per 24 mesi". */
   unitLabel: string;
-  /** Card evidenziata con badge "Più scelto". */
   popular: boolean;
 };
 
 export const PLANS: readonly Plan[] = [
   {
+    id: "DAILY",
+    label: "Giornaliero",
+    oneShotCents: 1299,
+    installments: null,
+    durationLabel: "Durata 1 giorno",
+    unitLabel: "al giorno",
+    popular: false
+  },
+  {
     id: "MONTHLY",
     label: "Mensile",
-    oneShotCents: 7000,
+    oneShotCents: 6999,
     installments: null,
     durationLabel: "Durata 1 mese",
     unitLabel: "al mese",
     popular: false
   },
   {
+    id: "QUARTERLY",
+    label: "Trimestrale",
+    oneShotCents: 16999,
+    installments: null,
+    durationLabel: "Durata 3 mesi",
+    unitLabel: "per 3 mesi",
+    popular: false
+  },
+  {
     id: "YEARLY",
     label: "Annuale",
-    oneShotCents: 45000,
-    installments: { count: 12, amountCents: 4700 },
+    oneShotCents: 44999,
+    installments: { count: 12, amountCents: 4799 },
     durationLabel: "Durata 12 mesi",
     unitLabel: "all'anno",
     popular: true
@@ -46,17 +60,16 @@ export const PLANS: readonly Plan[] = [
   {
     id: "BIENNIAL",
     label: "Biennale",
-    oneShotCents: 70000,
-    installments: { count: 24, amountCents: 4000 },
+    oneShotCents: 74999,
+    installments: { count: 2, amountCents: 37498 },
     durationLabel: "Durata 24 mesi",
     unitLabel: "per 24 mesi",
     popular: false
   }
 ] as const;
 
-export const MONTHLY_REFERENCE_CENTS = 7000;
+export const MONTHLY_REFERENCE_CENTS = 6999;
 
-/** Formatta centesimi in "45,00 €" (locale IT, senza decimali inutili). */
 export function formatEuroCents(cents: number): string {
   const euros = cents / 100;
   return new Intl.NumberFormat("it-IT", {
@@ -67,16 +80,15 @@ export function formatEuroCents(cents: number): string {
   }).format(euros);
 }
 
-/**
- * Calcola la % di sconto vs costo mensile equivalente (identico al gestionale).
- * Es: YEARLY 450€ vs 12×70€ = 840€ → −46%.
- */
 export function computeSavingsPct(
   tierCents: number,
   tier: PlanId,
   monthlyCents = MONTHLY_REFERENCE_CENTS
 ): number | null {
-  const months = tier === "YEARLY" ? 12 : tier === "BIENNIAL" ? 24 : 0;
+  const months =
+    tier === "QUARTERLY" ? 3 :
+    tier === "YEARLY" ? 12 :
+    tier === "BIENNIAL" ? 24 : 0;
   if (months === 0) return null;
   const monthlyEquivalent = months * monthlyCents;
   if (monthlyEquivalent <= 0) return null;

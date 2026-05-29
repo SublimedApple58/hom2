@@ -14,8 +14,8 @@ export function Pricing() {
         <span className="eyebrow">Abbonamenti</span>
         <h2 className="landing-section-title">Scegli il tuo piano</h2>
         <p className="landing-section-sub">
-          Paga una volta, rinnovi quando ti pare. Nessun rinnovo automatico,
-          nessuna sorpresa sul conto. Per i piani annuali è in arrivo il pagamento a rate.
+          Paga una volta, rinnovi quando ti pare. Per i piani annuali e biennali
+          è disponibile il pagamento a rate.
         </p>
       </header>
 
@@ -58,8 +58,7 @@ export function Pricing() {
 
               {plan.installments ? (
                 <p className="pricing-card-installments">
-                  oppure {plan.installments.count} × {formatEuroCents(plan.installments.amountCents)}
-                  <span style={{ opacity: 0.6 }}> · a rate (presto disponibile)</span>
+                  oppure {plan.installments.count} × {formatEuroCents(plan.installments.amountCents)} a rate
                 </p>
               ) : (
                 <p className="pricing-card-installments-empty">&nbsp;</p>
@@ -82,7 +81,7 @@ export function Pricing() {
                   <span className="pricing-card-feature-icon" aria-hidden="true">
                     <Check size={12} strokeWidth={3} />
                   </span>
-                  <span>Nessun rinnovo automatico</span>
+                  <span>Codice accesso personale</span>
                 </li>
               </ul>
 

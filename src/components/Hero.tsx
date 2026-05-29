@@ -36,7 +36,7 @@ export function Hero() {
 
       <span className="landing-hero-foot">
         <span className="landing-hero-foot-dot" aria-hidden="true" />
-        Nessun rinnovo automatico · Pagamento sicuro
+        Accesso H24 · Pagamento sicuro
       </span>
     </section>
   );
