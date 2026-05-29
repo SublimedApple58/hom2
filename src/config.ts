@@ -10,6 +10,6 @@ export const LOGIN_URL = APP_URL;
 export const CHECKOUT_URL = `${APP_URL}/register`;
 
 /** Helper per la CTA "Iscriviti a tier X" delle pricing card. */
-export function checkoutUrlFor(tier: "MONTHLY" | "YEARLY" | "BIENNIAL"): string {
+export function checkoutUrlFor(tier: string): string {
   return `${CHECKOUT_URL}?tier=${tier}`;
 }
