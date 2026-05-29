@@ -2,12 +2,13 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { checkoutUrlFor } from "../config";
 import { PLANS, computeSavingsPct, formatEuroCents } from "../lib/plans";
 
-/**
- * Listino abbonamenti — replica 1:1 della UI delle .checkout-tier-card del gestionale
- * (stesso badge "Più scelto", stesso chip savings, stesso blocco rate).
- * Le CTA puntano direttamente al checkout del gestionale con il tier preselezionato.
- */
+const MAIN_IDS = ["MONTHLY", "YEARLY", "BIENNIAL"] as const;
+const SECONDARY_IDS = ["DAILY", "QUARTERLY"] as const;
+
 export function Pricing() {
+  const mainPlans = PLANS.filter((p) => (MAIN_IDS as readonly string[]).includes(p.id));
+  const secondaryPlans = PLANS.filter((p) => (SECONDARY_IDS as readonly string[]).includes(p.id));
+
   return (
     <section id="pricing" className="landing-section">
       <header className="landing-section-header">
@@ -20,7 +21,7 @@ export function Pricing() {
       </header>
 
       <div className="pricing-grid">
-        {PLANS.map((plan) => {
+        {mainPlans.map((plan) => {
           const savingsPct = computeSavingsPct(plan.oneShotCents, plan.id);
 
           return (
@@ -36,10 +37,7 @@ export function Pricing() {
                 </span>
               ) : null}
 
-              <p
-                id={`plan-${plan.id}-title`}
-                className="pricing-card-kicker"
-              >
+              <p id={`plan-${plan.id}-title`} className="pricing-card-kicker">
                 {plan.label}
               </p>
 
@@ -97,6 +95,24 @@ export function Pricing() {
             </article>
           );
         })}
+      </div>
+
+      {/* Secondary plans — subtle row */}
+      <div className="pricing-secondary">
+        <p className="pricing-secondary-label">Disponibile anche</p>
+        <div className="pricing-secondary-row">
+          {secondaryPlans.map((plan) => (
+            <a
+              key={plan.id}
+              href={checkoutUrlFor(plan.id)}
+              className="pricing-secondary-item"
+            >
+              <span className="pricing-secondary-name">{plan.label}</span>
+              <span className="pricing-secondary-price">{formatEuroCents(plan.oneShotCents)}</span>
+              <span className="pricing-secondary-unit">{plan.unitLabel}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
