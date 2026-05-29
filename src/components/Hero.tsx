@@ -15,7 +15,7 @@ export function Hero() {
       <span className="landing-hero-kicker">Palestra · Dal 2024</span>
 
       <h1 className="landing-hero-title">
-        Allenati <span>senza</span> complicazioni.
+        Diventa <span>chi</span> sei.
       </h1>
 
       <p className="landing-hero-sub">
