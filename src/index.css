@@ -986,22 +986,56 @@ section {
 }
 
 .story-founder {
-  max-width: 640px;
+  max-width: 840px;
   margin: 48px auto 0;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 700px) {
+  .story-founder {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: center;
+  }
+}
+
+.story-founder-photo-wrap {
+  width: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.story-founder-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .story-founder-photo-wrap {
+    width: 220px;
+  }
+}
+
+.story-founder-text {
   display: grid;
   gap: 12px;
   color: var(--text-muted, #a1a1aa);
   font-size: 16px;
   line-height: 1.7;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.story-founder-header {
-  display: grid;
-  gap: 4px;
-  margin-bottom: 8px;
+@media (max-width: 700px) {
+  .story-founder-text {
+    text-align: center;
+  }
 }
 
 .story-founder-name {

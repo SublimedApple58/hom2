@@ -23,23 +23,31 @@ export function Story() {
       </div>
 
       <div className="story-founder">
-        <div className="story-founder-header">
+        <div className="story-founder-photo-wrap">
+          <img
+            src="/founder.jpg"
+            alt="Giancola Umberto in gara"
+            className="story-founder-photo"
+            loading="lazy"
+          />
+        </div>
+        <div className="story-founder-text">
           <span className="eyebrow">Il fondatore</span>
           <h3 className="story-founder-name">Giancola Umberto</h3>
+          <p>
+            Giancola Umberto è un culturista che ha costruito la sua esperienza
+            sul campo.
+          </p>
+          <p>
+            Ha partecipato e vinto diverse gare nel panorama nazionale e
+            internazionale, trasformando anni di allenamento, disciplina e
+            sacrificio in una visione concreta: creare una palestra che
+            rispecchiasse davvero ciò che serve per migliorare.
+          </p>
+          <p className="story-closing">
+            House of Muscle è il risultato di questo percorso.
+          </p>
         </div>
-        <p>
-          Giancola Umberto è un culturista che ha costruito la sua esperienza
-          sul campo.
-        </p>
-        <p>
-          Ha partecipato e vinto diverse gare nel panorama nazionale e
-          internazionale, trasformando anni di allenamento, disciplina e
-          sacrificio in una visione concreta: creare una palestra che
-          rispecchiasse davvero ciò che serve per migliorare.
-        </p>
-        <p className="story-closing">
-          House of Muscle è il risultato di questo percorso.
-        </p>
       </div>
     </section>
   );
