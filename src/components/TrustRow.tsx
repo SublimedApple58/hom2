@@ -49,7 +49,7 @@ export function TrustRow() {
         </span>
         <span className="landing-trust-text">
           <span className="landing-trust-value">Personale altamente qualificato</span>
-          <span className="landing-trust-label">Non abbiamo saputi. Abbiamo patuti.</span>
+          <span className="landing-trust-label">Non abbiamo chi racconta, abbiamo chi realizza.</span>
         </span>
       </div>
 
