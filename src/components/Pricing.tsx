@@ -1,13 +1,20 @@
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Crown } from "lucide-react";
 import { checkoutUrlFor } from "../config";
-import { PLANS, computeSavingsPct, formatEuroCents } from "../lib/plans";
+import { PLANS, computeSavingsPct, formatEuroCents, MONTHLY_REFERENCE_CENTS } from "../lib/plans";
 
-const MAIN_IDS = ["MONTHLY", "YEARLY", "BIENNIAL"] as const;
+const GRID_IDS = ["MONTHLY", "YEARLY", "BIENNIAL"] as const;
 const SECONDARY_IDS = ["DAILY", "QUARTERLY"] as const;
 
 export function Pricing() {
-  const mainPlans = PLANS.filter((p) => (MAIN_IDS as readonly string[]).includes(p.id));
+  const yearly = PLANS.find((p) => p.id === "YEARLY")!;
+  const gridPlans = PLANS.filter((p) => (GRID_IDS as readonly string[]).includes(p.id));
   const secondaryPlans = PLANS.filter((p) => (SECONDARY_IDS as readonly string[]).includes(p.id));
+
+  // Featured: annuale a rate. Mensile equivalente 69,99 → 47,99 = risparmio %
+  const monthlyInstallment = yearly.installments!.amountCents;
+  const installmentSavingsPct = Math.round(
+    ((MONTHLY_REFERENCE_CENTS - monthlyInstallment) / MONTHLY_REFERENCE_CENTS) * 100
+  );
 
   return (
     <section id="pricing" className="landing-section">
@@ -15,30 +22,93 @@ export function Pricing() {
         <span className="eyebrow">Abbonamenti</span>
         <h2 className="landing-section-title">Scegli il tuo piano</h2>
         <p className="landing-section-sub">
-          Paga una volta, rinnovi quando ti pare. Per i piani annuali e biennali
-          è disponibile il pagamento a rate.
+          Allenati tutto l'anno pagando ogni mese. La formula scelta dalla
+          maggior parte dei nostri iscritti.
         </p>
       </header>
 
+      {/* ── HERO: Annuale a rate ─────────────────────────────────────── */}
+      <article className="pricing-hero" aria-labelledby="plan-hero-title">
+        <div className="pricing-hero-glow" aria-hidden="true" />
+
+        <span className="pricing-hero-badge">
+          <Crown size={12} aria-hidden="true" />
+          La scelta n.1
+        </span>
+
+        <div className="pricing-hero-grid">
+          <div className="pricing-hero-left">
+            <p id="plan-hero-title" className="pricing-hero-kicker">
+              Abbonamento Annuale · a rate
+            </p>
+            <div className="pricing-hero-price">
+              <span className="pricing-hero-price-value">
+                {formatEuroCents(monthlyInstallment)}
+              </span>
+              <span className="pricing-hero-price-unit">/ mese</span>
+            </div>
+            <p className="pricing-hero-detail">
+              {yearly.installments!.count} rate mensili · accesso completo per un anno intero
+            </p>
+            <span className="pricing-hero-save">
+              Solo {formatEuroCents(monthlyInstallment)} al mese invece di{" "}
+              {formatEuroCents(MONTHLY_REFERENCE_CENTS)} — risparmi il {installmentSavingsPct}%
+            </span>
+          </div>
+
+          <div className="pricing-hero-right">
+            <ul className="pricing-hero-features">
+              <li>
+                <span className="pricing-card-feature-icon" aria-hidden="true">
+                  <Check size={12} strokeWidth={3} />
+                </span>
+                <span>Accesso illimitato 7 giorni su 7</span>
+              </li>
+              <li>
+                <span className="pricing-card-feature-icon" aria-hidden="true">
+                  <Check size={12} strokeWidth={3} />
+                </span>
+                <span>Un anno intero di allenamento</span>
+              </li>
+              <li>
+                <span className="pricing-card-feature-icon" aria-hidden="true">
+                  <Check size={12} strokeWidth={3} />
+                </span>
+                <span>Paghi comodamente ogni mese</span>
+              </li>
+              <li>
+                <span className="pricing-card-feature-icon" aria-hidden="true">
+                  <Check size={12} strokeWidth={3} />
+                </span>
+                <span>Codice accesso personale</span>
+              </li>
+            </ul>
+
+            <a href={checkoutUrlFor("YEARLY", true)} className="button button-primary pricing-hero-cta">
+              Inizia adesso
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <p className="pricing-alt-label">Oppure scegli un altro piano</p>
+
+      {/* ── Grid piani standard ──────────────────────────────────────── */}
       <div className="pricing-grid">
-        {mainPlans.map((plan) => {
+        {gridPlans.map((plan) => {
           const savingsPct = computeSavingsPct(plan.oneShotCents, plan.id);
+          const isYearly = plan.id === "YEARLY";
 
           return (
             <article
               key={plan.id}
-              className={`pricing-card ${plan.popular ? "popular" : ""}`}
+              className="pricing-card"
               aria-labelledby={`plan-${plan.id}-title`}
             >
-              {plan.popular ? (
-                <span className="pricing-card-badge">
-                  <Sparkles size={10} aria-hidden="true" />
-                  Più scelto
-                </span>
-              ) : null}
-
               <p id={`plan-${plan.id}-title`} className="pricing-card-kicker">
                 {plan.label}
+                {isYearly ? " · unica soluzione" : ""}
               </p>
 
               <div className="pricing-card-price">
@@ -52,14 +122,8 @@ export function Pricing() {
                 <span className="pricing-card-savings">
                   −{savingsPct}% rispetto al mensile
                 </span>
-              ) : null}
-
-              {plan.installments ? (
-                <p className="pricing-card-installments">
-                  oppure {plan.installments.count} × {formatEuroCents(plan.installments.amountCents)} a rate
-                </p>
               ) : (
-                <p className="pricing-card-installments-empty">&nbsp;</p>
+                <span className="pricing-card-savings-empty">&nbsp;</span>
               )}
 
               <ul className="pricing-card-features">
@@ -84,11 +148,8 @@ export function Pricing() {
               </ul>
 
               <div className="pricing-card-cta">
-                <a
-                  href={checkoutUrlFor(plan.id)}
-                  className={plan.popular ? "button button-primary" : "button button-ghost"}
-                >
-                  Iscriviti al piano {plan.label.toLowerCase()}
+                <a href={checkoutUrlFor(plan.id)} className="button button-ghost">
+                  Scegli {plan.label.toLowerCase()}
                   <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
@@ -97,7 +158,7 @@ export function Pricing() {
         })}
       </div>
 
-      {/* Secondary plans — subtle row */}
+      {/* ── Riga piani secondari ─────────────────────────────────────── */}
       <div className="pricing-secondary">
         <p className="pricing-secondary-label">Disponibile anche</p>
         <div className="pricing-secondary-row">
