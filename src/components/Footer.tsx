@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 import { LOGIN_URL, CHECKOUT_URL, APP_URL } from "../config";
 
 /**
@@ -54,13 +54,6 @@ export function Footer() {
             >
               <InstagramGlyph size={16} />
             </a>
-            <a
-              href="mailto:info@houseofmuscle.it"
-              className="landing-footer-social-icon"
-              aria-label="Email"
-            >
-              <Mail size={16} />
-            </a>
           </div>
         </div>
 
@@ -76,11 +69,8 @@ export function Footer() {
             <li>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
                 <Clock size={14} aria-hidden="true" />
-                Lun–Dom · 06:00–23:00
+                Aperti 24 ore su 24, 7 giorni su 7
               </span>
-            </li>
-            <li>
-              <a href="mailto:info@houseofmuscle.it">info@houseofmuscle.it</a>
             </li>
           </ul>
         </div>
