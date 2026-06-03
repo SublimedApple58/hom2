@@ -1,5 +1,5 @@
 import { Mail, MapPin, Clock } from "lucide-react";
-import { LOGIN_URL, CHECKOUT_URL } from "../config";
+import { LOGIN_URL, CHECKOUT_URL, APP_URL } from "../config";
 
 /**
  * Inline SVG per il logo Instagram — lucide v1 ha rimosso i brand icons,
@@ -70,7 +70,7 @@ export function Footer() {
             <li>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
                 <MapPin size={14} aria-hidden="true" />
-                Via Esempio 123, Roma
+                Via Amerigo Vespucci SNC
               </span>
             </li>
             <li>
@@ -104,21 +104,18 @@ export function Footer() {
           <h4 className="landing-footer-col-title">Legale</h4>
           <ul>
             <li>
-              <a href="#">Privacy policy</a>
+              <a href={`${APP_URL}/privacy`} target="_blank" rel="noopener noreferrer">Privacy policy</a>
             </li>
             <li>
-              <a href="#">Termini e condizioni</a>
-            </li>
-            <li>
-              <a href="#">Regolamento palestra</a>
+              <a href={`${APP_URL}/terms`} target="_blank" rel="noopener noreferrer">Termini e condizioni</a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="landing-footer-bottom">
-        <span>© 2024–{new Date().getFullYear()} House of Muscle. Tutti i diritti riservati.</span>
-        <span>P. IVA 00000000000</span>
+        <span>© 2024–{new Date().getFullYear()} House of Muscle SSD ARL. Tutti i diritti riservati.</span>
+        <span>P. IVA 02225020672</span>
       </div>
     </footer>
   );
